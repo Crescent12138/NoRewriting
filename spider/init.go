@@ -2,9 +2,9 @@ package spider
 
 /*
 ------------------------------
-@Time : 5/4/2022 3:38 PM
+@Time : 5/4/2022 10:56 PM
 @Author : Sariel Crescent
-@File : codeforces
+@File : init.go
 @Software: GoLand
 ----------------------------
 */
