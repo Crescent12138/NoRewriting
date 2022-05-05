@@ -19,6 +19,7 @@ type App struct {
 	Port     int    `yaml:"port"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
+	Database string `yaml:"database"`
 }
 
 type Log struct {

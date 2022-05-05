@@ -3,6 +3,7 @@ app:
   port: 3306
   username: root
   password: 10086
+  database: code_forces
 log:
   suffix: log
   maxSize: 5

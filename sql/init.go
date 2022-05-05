@@ -22,11 +22,10 @@ var (
 )
 
 func init() {
-
 	msg := config.UserMySQL.App
 	password := msg.Password
 	host := msg.Host
-	dbname := msg.Username
+	dbname := msg.Database
 	user := msg.Username
 	dsn := fmt.Sprintf("%v:%v@tcp(%v)/%v", user, password, host, dbname)
 	var err error
@@ -34,4 +33,5 @@ func init() {
 	if err != nil {
 		log.Errorf("Open Sql Error, %v", err)
 	}
+	Db.Ping()
 }
