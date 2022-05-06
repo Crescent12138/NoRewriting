@@ -10,3 +10,6 @@ package inquiry
 */
 
 //这个分页用于查询最近摸鱼的人有哪些
+func queryPersonSumProblem() {
+
+}

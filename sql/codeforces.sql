@@ -10,3 +10,5 @@ CREATE TABLE `submission` (
                               PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='集体表格汇总';
 alter table submission add unique key `name_problem` (`user_id`,`contest_id`,`problem_index`);
+
+ALTER TABLE  admin  ADD FOREIGN KEY products_vendors_fk_1 (user_id) REFERENCES submission (user_id);

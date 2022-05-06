@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"io/ioutil"
-)
+import "net/http"
 
 /*
 ------------------------------
@@ -15,12 +12,6 @@ import (
 */
 
 func main() {
-	files, err := ioutil.ReadDir(".")
-	if err != nil {
-		fmt.Println(err)
-	}
-	for _, f := range files {
-		fmt.Println(f.Name())
-	}
-
+	
+	http.ListenAndServe(":8109", nil)
 }

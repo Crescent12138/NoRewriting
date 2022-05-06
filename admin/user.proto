@@ -1,0 +1,11 @@
+syntax = "proto3";
+package notepad.admin;
+
+option go_package = ".";
+
+message user{
+  string userName         = 1;     //cf账号
+  string password         = 2;     //密码
+  string key              = 3;     //api key
+  string secret           = 4;     //api secret
+}
