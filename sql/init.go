@@ -33,6 +33,6 @@ func init() {
 	if err != nil {
 		log.Errorf("Open Sql Error, %v", err)
 	}
-	defer func() { Db.Close() }()
+
 	Db.Ping()
 }

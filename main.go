@@ -1,6 +1,6 @@
 package main
 
-import "net/http"
+import "NoRewriting/router"
 
 /*
 ------------------------------
@@ -12,6 +12,6 @@ import "net/http"
 */
 
 func main() {
-	
-	http.ListenAndServe(":8109", nil)
+	router.ListenRouter()
+	//http.ListenAndServe(":8109", nil)
 }

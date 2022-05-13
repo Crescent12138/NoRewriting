@@ -2,6 +2,7 @@ package spider
 
 import (
 	"NoRewriting/sql"
+
 	log "github.com/sirupsen/logrus"
 )
 
@@ -26,6 +27,15 @@ func addDataToSubmission(userName string, mp map[int64]Submission) error {
 		if err != nil {
 			log.Infof("add data %v", err)
 		}
+	}
+	return nil
+}
+
+func addProblem(mp map[int64]Problem) error {
+	query := "insert into cf_problem_set (contestId, `index`, name, rating)values(?,?,?,?)"
+
+	for _, val := range mp {
+		sql.Db.Exec(query, val.ContestId, val.Index, val.Name, val.Rating)
 	}
 	return nil
 }

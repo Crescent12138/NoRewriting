@@ -42,3 +42,25 @@ func statusWithKey(userName string, key string, secret string) string {
 	log.Println(wget)
 	return wget
 }
+
+func gymWithKey(userName string, key string, secret string) string {
+
+	//watch https://codeforces.com/apiHelp
+	ti := int(time.Now().Unix())
+	sig := "123456"
+	secret = "#" + secret
+	str := "/contest.list?apiKey=" + key + "&gym=true&time=" + strconv.Itoa(ti)
+	hash := []byte(sig + str + secret)
+	sha := sha512.New()
+	io.WriteString(sha, string(hash))
+	bw := sha.Sum(nil)
+	hashSign := hex.EncodeToString(bw)
+	wget := "https://codeforces.com/api" + str + "&apiSig=" + sig + hashSign
+
+	log.Println(wget)
+	return wget
+}
+func problemSetWithoutKey() string {
+	wget := "https://codeforces.com/api/problemset.problems"
+	return wget
+}

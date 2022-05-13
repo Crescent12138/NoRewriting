@@ -13,9 +13,18 @@ message submission{
   problem problem     = 3;   //比赛题目
   string verdict      = 4;   //报错或正确
   string author       = 5;
+  string creationRimeSeconds = 6;
 }
 message problem {
-  string index  = 1;  //比赛题目号
-  string name   = 2;  //题目名
-  int64 rating  = 3;  //分段
+  string index     = 1;  //比赛题目号
+  string name      = 2;  //题目名
+  int64 rating     = 3;  //分段
+  int32 contestId  = 4;
+}
+message problemSets{
+  string status = 1;
+  results result = 2;
+}
+message results{
+  repeated problem problems = 1;
 }

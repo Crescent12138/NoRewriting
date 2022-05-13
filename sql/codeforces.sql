@@ -11,4 +11,21 @@ CREATE TABLE `submission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='集体表格汇总';
 alter table submission add unique key `name_problem` (`user_id`,`contest_id`,`problem_index`);
 
-ALTER TABLE  admin  ADD FOREIGN KEY products_vendors_fk_1 (user_id) REFERENCES submission (user_id);
+ALTER TABLE  admin  ADD FOREIGN KEY products_vendors_fk_1 (user_name) REFERENCES submission (user_id);
+
+
+drop table if exists `cf_problem_set`;
+
+create table `cf_problem_set`
+(
+    Id        int unsigned auto_increment
+        primary key,
+    contestId int          null,
+    `index`   varchar(20)  null,
+    name      varchar(100) null,
+    type      varchar(100) null,
+    rating    int          null
+)
+    charset = utf8
+    auto_increment = 1590;
+alter table cf_problem_set add unique key `name_problem` (`contestId`,`index`);

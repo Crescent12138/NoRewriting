@@ -46,3 +46,33 @@ func getSubmission(url string) (map[int64]Submission, error) {
 	}
 	return mp, nil
 }
+func getProblemSet(url string) (map[int64]Problem, error) {
+	value, err := http.Get(url)
+	if err != nil {
+		return nil, err
+	}
+	bytes, err := ioutil.ReadAll(value.Body)
+	if err != nil {
+		return nil, err
+	}
+	sub := &ProblemSets{}
+	err = json.Unmarshal(bytes, sub)
+	if err != nil {
+		log.Infof("imply %v", err)
+	}
+	if sub.Status != "OK" {
+		log.Errorf("fail to visit url ,check key or secret is right")
+		log.Errorf(url)
+		return nil, err
+	}
+	//var mp map[int64]Submission
+	mp := make(map[int64]Problem)
+	problem := sub.GetResult().GetProblems()
+	cnt := 0
+	for _, val := range problem {
+
+		mp[int64(cnt)] = *val
+		cnt++
+	}
+	return mp, nil
+}

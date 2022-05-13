@@ -1,0 +1,13 @@
+syntax = "proto3";
+package notepad.cf;
+
+option go_package = ".";
+
+message forms{
+  string status              = 1;     //判定是否调用api access
+  string  name               = 2;     //用户姓名
+  string  codeforces         = 3;     //用户cf账户id
+  string  key                = 4;     //用户的key
+  string  secret             = 5;     //用户的secret
+}
+

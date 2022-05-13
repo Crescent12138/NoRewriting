@@ -1,0 +1,16 @@
+syntax = "proto3";
+package notepad.cf;
+
+option go_package = ".";
+
+message login{
+  string status              = 1;     //判定是否调用api access
+  string userName            = 2;     //账号
+  string password            = 3;     // 密码
+}
+
+message register{
+  string status              = 1;     //判定是否调用api access
+  string userName            = 2;     //账号
+  string password            = 3;     // 密码
+}
